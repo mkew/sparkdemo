@@ -5,7 +5,7 @@ import twitter4j.Status
 import util.TwitterHelper
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// NOTE: This Demo requires twitter credentials to be placed in root/twitter.txt.
+// NOTE: This Demo requires twitter credentials to be placed in twitter.txt.
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 object SparkStreaming extends App {
