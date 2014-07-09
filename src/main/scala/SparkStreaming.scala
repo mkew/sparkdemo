@@ -1,23 +1,12 @@
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-// This Demo requires file root/etc/twitter.txt.
-// The contents of this file must include your twitter credentials like below.
-
-// consumerKey = jnoX1xxxxxxxx...
-// consumerSecret = eDYCYVYMTx...
-// accessToken = 352827242xxxx...
-// accessTokenSecret = EiyUeHc...
-
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
 import org.apache.spark.streaming.dstream.{ReceiverInputDStream, DStream}
 import org.apache.spark.streaming.twitter.TwitterUtils
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 import twitter4j.Status
 import util.TwitterHelper
 
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// NOTE: This Demo requires twitter credentials to be placed in root/twitter.txt.
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 object SparkStreaming extends App {
 
