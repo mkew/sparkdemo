@@ -11,6 +11,7 @@ import util.TwitterHelper
 object SparkStreaming extends App {
 
   val happyWords = Set("happy", "love", "laugh", "excited")
+  val whitespace = """\s+""".r
 
   val ssc = new StreamingContext(
     master = "local[4]",
@@ -24,7 +25,7 @@ object SparkStreaming extends App {
   val statuses: DStream[String] = tweets.map(status => status.getText)
 
   def filterTweetsWithWords(filterWords: Set[String], statuses: DStream[String]) = statuses.filter { status =>
-    !status.split(" ").filter{ word => filterWords.contains(word.toLowerCase) }.isEmpty
+    !whitespace.split(status).flatMap{ word => filterWords.find(_ == word.toLowerCase) }.isEmpty
   }
 
   val happyTweets = filterTweetsWithWords(happyWords, statuses)
