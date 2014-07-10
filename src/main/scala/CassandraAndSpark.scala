@@ -34,7 +34,7 @@ object CassandraAndSpark extends App {
     // Register minors as a table and run spark SQL queries against it and print the results
     minors.registerAsTable("minors")
     val under5 = sql("SELECT fname, lname FROM minors WHERE age < 5")
-    under5.map(t => s"Under 5: ${t(0)} ${t(1)}").collect().foreach(println)
+    under5.map(t => s"Under 5: ${t(0)} ${t(1)}").foreach(println)
 
     sc.stop()
   }
