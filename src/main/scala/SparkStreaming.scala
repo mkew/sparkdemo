@@ -4,9 +4,7 @@ import org.apache.spark.streaming.{Seconds, StreamingContext}
 import twitter4j.Status
 import util.TwitterHelper
 
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// NOTE: This Demo requires twitter credentials to be placed in twitter.txt.
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// NOTE: You must supply twitter credentials in twitter.txt to run this demo //
 
 object SparkStreaming extends App {
 
@@ -25,7 +23,7 @@ object SparkStreaming extends App {
   val statuses: DStream[String] = tweets.map(status => status.getText)
 
   def filterTweetsWithWords(filterWords: Set[String], statuses: DStream[String]) = statuses.filter { status =>
-    !whitespace.split(status).flatMap{ word => filterWords.find(_ == word.toLowerCase) }.isEmpty
+    !whitespace.split(status).find(word => happyWords.contains(word.toLowerCase)).isEmpty
   }
 
   val happyTweets = filterTweetsWithWords(happyWords, statuses)
