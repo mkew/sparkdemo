@@ -15,7 +15,7 @@ object BasicCassandraAndSpark extends App {
     implicit val sc = new SparkContext("local", "test", conf)
 
     val persons = sc.cassandraTable[Person]("test", "persons")
-    val adults = persons.filter(_.age > 18)
+    val adults = persons.filter(_.age > 17)
     adults.saveToCassandra("test", "adults"); printAdults
 
     sc.stop()
